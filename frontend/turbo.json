@@ -1,0 +1,23 @@
+{
+  "ui": "tui",
+  "tasks": {
+    "dev": {
+      "cache": false,
+      "interactive": true
+    },
+    "build": {
+      "outputs": ["dist/**"],
+      "cache": true
+    },
+    "lint": {
+      "outputs": ["lint-reports/**"],
+      "cache": true
+    },
+    "test": {
+      "outputs": ["coverage/**"],
+      "cache": true
+    }
+  },
+  "globalEnv": [],
+  "globalPassThroughEnv": ["NODE_ENV"]
+}
