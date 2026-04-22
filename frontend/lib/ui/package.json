@@ -9,7 +9,8 @@
     ".": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
-    }
+    },
+    "./tokens/colors.css": "./src/tokens/colors.css"
   },
   "scripts": {
     "build": "tsc",
@@ -25,5 +26,8 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "classnames": "^2.5.1"
   }
 }
