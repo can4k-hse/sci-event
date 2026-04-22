@@ -1,14 +1,6 @@
-import type { ButtonHTMLAttributes } from "react";
 import cn from "classnames";
 import styles from "./Button.module.css";
-
-export type ButtonVariant = "primary" | "secondary" | "ghost";
-export type ButtonSize = "sm" | "md" | "lg";
-
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: ButtonVariant;
-  size?: ButtonSize;
-}
+import type { ButtonProps } from "./Button.types";
 
 export function Button({ variant = "primary", size = "md", className, children, ...props }: ButtonProps) {
   const cls = cn(styles.button, styles[variant], styles[size], className);

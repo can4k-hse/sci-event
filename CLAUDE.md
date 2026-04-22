@@ -55,6 +55,7 @@ lib/{name}/
 │   ├── components/
 │   │   └── {ComponentName}/
 │   │       ├── {ComponentName}.tsx        # Реализация
+│   │       ├── {ComponentName}.types.ts   # Все типы и интерфейсы компонента
 │   │       ├── {ComponentName}.module.css # CSS Modules стили
 │   │       └── index.ts                   # Re-export
 │   ├── tokens/
@@ -88,11 +89,12 @@ apps/{name}/
 
 ### Компонентный паттерн (UI library)
 ```tsx
-// Props всегда extends HTML-атрибуты
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+// Props всегда extends HTML-атрибуты, типы в отдельном {ComponentName}.types.ts
+// Используем только type, не interface
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: 'primary' | 'secondary' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
-}
+};
 
 // Стилизация через CSS Modules + classnames
 import cn from 'classnames';

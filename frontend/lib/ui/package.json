@@ -13,7 +13,7 @@
     "./tokens/colors.css": "./src/tokens/colors.css"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && rsync -a --include='*.css' --include='*/' --exclude='*' src/ dist/",
     "dev": "tsc --watch",
     "lint": "eslint src",
     "test": "echo 'No tests'"
