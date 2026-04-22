@@ -1,0 +1,60 @@
+@import '../../tokens/colors.css';
+
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.control {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+}
+
+.dot {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--color-neutral-400);
+  border-radius: 50%;
+  background: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s;
+}
+
+.input:checked + .dot {
+  border-color: var(--color-primary-600);
+}
+
+.input:checked + .dot::after {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary-600);
+}
+
+.input:focus-visible + .dot {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+.labelText { font-size: 14px; color: var(--color-neutral-800); }

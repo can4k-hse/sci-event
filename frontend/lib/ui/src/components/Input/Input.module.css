@@ -1,0 +1,49 @@
+@import '../../tokens/colors.css';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-neutral-700);
+}
+
+.input {
+  border: 1.5px solid var(--color-neutral-300);
+  border-radius: 6px;
+  background: var(--color-white);
+  color: var(--color-neutral-900);
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input::placeholder { color: var(--color-neutral-400); }
+
+.input:focus {
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 3px var(--color-primary-100);
+}
+
+.input:disabled {
+  background: var(--color-neutral-100);
+  color: var(--color-neutral-400);
+  cursor: not-allowed;
+}
+
+.hasError { border-color: var(--color-error-500); }
+.hasError:focus { box-shadow: 0 0 0 3px var(--color-error-100); }
+
+/* Sizes */
+.sm { padding: 4px 10px;  font-size: 12px; }
+.md { padding: 8px 12px;  font-size: 14px; }
+.lg { padding: 10px 14px; font-size: 16px; }
+
+.errorText { font-size: 12px; color: var(--color-error-600); }
+.hint      { font-size: 12px; color: var(--color-neutral-500); }
