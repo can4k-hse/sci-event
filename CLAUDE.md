@@ -10,8 +10,7 @@
 ```
 sci-event/
 ├── frontend/                    # Корень npm-воркспейса
-│   ├── apps/                    # Приложения
-│   │   └── test-app/           # React + Vite демо-приложение
+│   ├── apps/                    # Приложения (пока пусто)
 │   ├── lib/                     # Переиспользуемые библиотеки
 │   │   └── ui/                 # Shared UI component library (@sci-event/ui)
 │   ├── package.json             # Workspace root (apps/*, lib/*)
@@ -26,7 +25,7 @@ sci-event/
 | Пакет | Путь | Тип | Стек |
 |-------|------|-----|------|
 | `@sci-event/ui` | `frontend/lib/ui/` | Компонентная библиотека | TypeScript + React 18+ |
-| test-app | `frontend/apps/test-app/` | React-приложение | JSX + React 19 + Vite |
+| `@sci-event/b2c` | `frontend/apps/b2c/` | Приложение | JSX + Vite 6 + React |
 
 ---
 
@@ -36,7 +35,7 @@ sci-event/
 - **Build orchestration:** Turborepo 2.x
 - **Node:** >= 18.0.0
 - **Компонентная библиотека:** TypeScript + TSC (без Vite)
-- **Приложения:** JSX + Vite 8 + React plugin с Oxc
+- **Приложения:** JSX + Vite 6 + @vitejs/plugin-react
 
 ---
 
@@ -161,7 +160,7 @@ npm run dev -w apps/test-app   # один пакет
 2. Добавить `package.json` с именем `@sci-event/{name}`
 3. Добавить скрипты `build`, `dev`, `lint` — Turbo их подхватит автоматически
 4. Для библиотек: добавить `tsconfig.json` по образцу `lib/ui/tsconfig.json`
-5. Для приложений: добавить `vite.config.js` по образцу `apps/test-app/vite.config.js`
+5. Для приложений: добавить `vite.config.js` по образцу `apps/b2c/vite.config.js`
 
 ---
 
