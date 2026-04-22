@@ -111,6 +111,22 @@ const cls = cn(styles.button, styles[variant], styles[size], className);
 - Шкала: `--color-{category}-{50..900}`, категории: `primary`, `neutral`, `success`, `warning`, `error`
 - Экспорт из пакета: `@sci-event/ui/tokens/colors.css` (указывает на `src/tokens/colors.css` напрямую, Vite обработает)
 
+### Текст — ВАЖНЕЙШЕЕ ПРАВИЛО
+- **Весь текст в UI рендерится только через `<Text>`** — никакого plaintext, `<p>`, `<span>`, `<h1>`–`<h6>` и т.д. напрямую
+- Это распространяется на все приложения и компоненты, которые используют `@sci-event/ui`
+- Исключение: внутренние реализации самих компонентов библиотеки (например, label внутри Input)
+
+```tsx
+// ❌ Нельзя
+<p>Привет</p>
+<span>Текст</span>
+
+// ✅ Правильно
+<Text>Привет</Text>
+<Text as="span">Текст</Text>
+<Text as="h1" size="xxxl" weight="bold">Заголовок</Text>
+```
+
 ### Конкатенация классов
 - Использовать `classnames` (`import cn from 'classnames'`), не ручной `join`
 
