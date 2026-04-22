@@ -54,10 +54,14 @@ lib/{name}/
 ├── src/
 │   ├── components/
 │   │   └── {ComponentName}/
-│   │       ├── {ComponentName}.tsx   # Реализация
-│   │       └── index.ts              # Re-export
-│   └── index.ts                      # Barrel export всего пакета
-├── dist/                             # Артефакты сборки (не коммитить)
+│   │       ├── {ComponentName}.tsx        # Реализация
+│   │       ├── {ComponentName}.module.css # CSS Modules стили
+│   │       └── index.ts                   # Re-export
+│   ├── tokens/
+│   │   └── colors.css                     # CSS custom properties (:root)
+│   ├── css-modules.d.ts                   # Типы для *.module.css
+│   └── index.ts                           # Barrel export всего пакета
+├── dist/                                  # Артефакты сборки (не коммитить)
 ├── package.json
 └── tsconfig.json
 ```
@@ -90,9 +94,23 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'sm' | 'md' | 'lg';
 }
 
-// Стилизация через data-атрибуты, не className-условия
-<button data-variant={variant} data-size={size} {...props} />
+// Стилизация через CSS Modules + classnames
+import cn from 'classnames';
+import styles from './Button.module.css';
+
+const cls = cn(styles.button, styles[variant], styles[size], className);
+<button className={cls} {...props} />
 ```
+
+### Токены (CSS custom properties)
+- Токены живут в `src/tokens/colors.css` как `:root { --color-* }` переменные
+- Каждый компонент подключает их через `@import '../../tokens/colors.css'` в своём `.module.css`
+- Потребитель библиотеки ничего не импортирует руками — токены подтягиваются автоматически при использовании компонента
+- Шкала: `--color-{category}-{50..900}`, категории: `primary`, `neutral`, `success`, `warning`, `error`
+- Экспорт из пакета: `@sci-event/ui/tokens/colors.css` (указывает на `src/tokens/colors.css` напрямую, Vite обработает)
+
+### Конкатенация классов
+- Использовать `classnames` (`import cn from 'classnames'`), не ручной `join`
 
 ### ESLint
 - Flat config (`eslint.config.js`)
