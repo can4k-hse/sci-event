@@ -1,0 +1,39 @@
+.root {
+  padding: 40px;
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sectionLg {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.buttonRow {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.spinnerRow {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.modalActions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}

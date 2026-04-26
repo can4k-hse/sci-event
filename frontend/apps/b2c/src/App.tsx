@@ -10,7 +10,7 @@ import {
   Toast,
   Spinner,
 } from '@sci-event/ui';
-import '@sci-event/ui/tokens/colors.css';
+import styles from './App.module.css';
 
 const selectOptions = [
   { value: 'conf', label: 'Конференция' },
@@ -24,13 +24,13 @@ export default function App() {
   const [radioValue, setRadioValue] = useState('online');
 
   return (
-    <div style={{ padding: '40px', maxWidth: '720px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '40px' }}>
-      <section>
+    <div className={styles.root}>
+      <section className={styles.section}>
         <Text as="h1" size="xxxl" weight="bold">sci-event B2C</Text>
         <Text color="muted">Тестовая страница компонентов @sci-event/ui</Text>
       </section>
 
-      <section style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+      <section className={styles.section}>
         <Text as="h2" size="xl" weight="semibold">Text</Text>
         <Text size="xs" color="subtle">Размер xs, цвет subtle</Text>
         <Text size="sm" color="muted">Размер sm, цвет muted</Text>
@@ -41,9 +41,9 @@ export default function App() {
         <Text size="xxxl" weight="bold" color="error">Размер xxxl, error</Text>
       </section>
 
-      <section style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+      <section className={styles.section}>
         <Text as="h2" size="xl" weight="semibold">Button</Text>
-        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div className={styles.buttonRow}>
           <Button variant="primary" size="sm">Primary sm</Button>
           <Button variant="primary" size="md">Primary md</Button>
           <Button variant="primary" size="lg">Primary lg</Button>
@@ -53,14 +53,14 @@ export default function App() {
         </div>
       </section>
 
-      <section style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      <section className={styles.sectionLg}>
         <Text as="h2" size="xl" weight="semibold">Input</Text>
         <Input label="Название события" placeholder="Введите название" size="sm" />
         <Input label="Email" type="email" placeholder="name@example.com" size="md" hint="Мы не передадим ваш email третьим лицам" />
         <Input label="Сайт" placeholder="https://" size="lg" error="Некорректный URL" />
       </section>
 
-      <section style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+      <section className={styles.section}>
         <Text as="h2" size="xl" weight="semibold">Checkbox</Text>
         <Checkbox
           label="Принимаю условия обработки персональных данных"
@@ -71,7 +71,7 @@ export default function App() {
         <Checkbox label="Отключен" disabled />
       </section>
 
-      <section style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+      <section className={styles.section}>
         <Text as="h2" size="xl" weight="semibold">Radio</Text>
         <Radio
           label="Онлайн"
@@ -91,14 +91,14 @@ export default function App() {
         <Text size="sm" color="muted">Выбрано: {radioValue}</Text>
       </section>
 
-      <section style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      <section className={styles.sectionLg}>
         <Text as="h2" size="xl" weight="semibold">Select</Text>
         <Select label="Тип события" options={selectOptions} placeholder="Выберите тип" size="sm" />
         <Select label="Тип события (md)" options={selectOptions} defaultValue="conf" size="md" />
         <Select label="С ошибкой" options={selectOptions} error="Обязательное поле" size="lg" />
       </section>
 
-      <section style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+      <section className={styles.section}>
         <Text as="h2" size="xl" weight="semibold">Toast</Text>
         <Toast variant="info" title="Информация">Событие создано и ожидает модерации</Toast>
         <Toast variant="success" title="Готово">Регистрация прошла успешно</Toast>
@@ -106,21 +106,21 @@ export default function App() {
         <Toast variant="error" title="Ошибка" onClose={() => {}}>Не удалось сохранить изменения</Toast>
       </section>
 
-      <section style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+      <section className={styles.section}>
         <Text as="h2" size="xl" weight="semibold">Spinner</Text>
-        <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+        <div className={styles.spinnerRow}>
           <Spinner size="sm" label="Загрузка sm" />
           <Spinner size="md" label="Загрузка md" />
           <Spinner size="lg" label="Загрузка lg" />
         </div>
       </section>
 
-      <section style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+      <section className={styles.section}>
         <Text as="h2" size="xl" weight="semibold">Modal</Text>
         <Button onClick={() => setModalOpen(true)}>Открыть модал</Button>
         <Modal open={modalOpen} onClose={() => setModalOpen(false)} title="Подтверждение регистрации">
           <Text>Вы уверены, что хотите зарегистрироваться на это событие?</Text>
-          <div style={{ display: 'flex', gap: '8px', marginTop: '16px' }}>
+          <div className={styles.modalActions}>
             <Button variant="primary" onClick={() => setModalOpen(false)}>Подтвердить</Button>
             <Button variant="ghost" onClick={() => setModalOpen(false)}>Отмена</Button>
           </div>

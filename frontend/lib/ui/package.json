@@ -10,7 +10,8 @@
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
-    "./tokens/colors.css": "./src/tokens/colors.css"
+    "./tokens/colors.css": "./src/tokens/colors.css",
+    "./tokens/fonts.css": "./src/tokens/fonts.css"
   },
   "scripts": {
     "build": "tsc && rsync -a --include='*.css' --include='*/' --exclude='*' src/ dist/",
