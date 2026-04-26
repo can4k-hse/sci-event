@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import cn from 'classnames';
 import styles from './BottomSheet.module.css';
 import type { BottomSheetProps } from './BottomSheet.types';
+import { Icon } from '../Icon';
 
 export type { BottomSheetProps } from './BottomSheet.types';
 
@@ -26,7 +27,7 @@ export function BottomSheet({ open, onClose, title, children, className }: Botto
           <div className={styles.header}>
             <span className={styles.title}>{title}</span>
             <button className={styles.closeBtn} onClick={onClose} aria-label="Закрыть">
-              ✕
+              <Icon name="X" size={16} />
             </button>
           </div>
         )}

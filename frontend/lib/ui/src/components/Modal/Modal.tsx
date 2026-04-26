@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import cn from "classnames";
 import styles from "./Modal.module.css";
 import type { ModalProps } from "./Modal.types";
+import { Icon } from "../Icon";
 
 export type { ModalProps } from "./Modal.types";
 
@@ -25,7 +26,7 @@ export function Modal({ open, onClose, title, children, className }: ModalProps)
           <div className={styles.header}>
             <span className={styles.title}>{title}</span>
             <button className={styles.closeBtn} onClick={onClose} aria-label="Закрыть">
-              ✕
+              <Icon name="X" size={16} />
             </button>
           </div>
         )}

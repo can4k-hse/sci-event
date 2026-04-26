@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@fontsource/montserrat": "^5.2.8",
-    "classnames": "^2.5.1"
+    "classnames": "^2.5.1",
+    "react-feather": "^2.0.10"
   }
 }
