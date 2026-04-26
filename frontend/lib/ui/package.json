@@ -29,6 +29,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "@fontsource/montserrat": "^5.2.8",
     "classnames": "^2.5.1"
   }
 }
