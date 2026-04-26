@@ -51,6 +51,10 @@
   --color-warning-800: #92400e;
   --color-warning-900: #78350f;
 
+  /* Overlay & Shadow */
+  --color-overlay: rgba(0, 0, 0, 0.40);
+  --color-shadow: rgba(0, 0, 0, 0.12);
+
   /* Error — Red */
   --color-error-50:  #fef2f2;
   --color-error-100: #fee2e2;

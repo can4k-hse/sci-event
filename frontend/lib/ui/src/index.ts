@@ -5,5 +5,6 @@ export * from "./components/Checkbox";
 export * from "./components/Radio";
 export * from "./components/Select";
 export * from "./components/Modal";
+export * from "./components/BottomSheet";
 export * from "./components/Toast";
 export * from "./components/Spinner";

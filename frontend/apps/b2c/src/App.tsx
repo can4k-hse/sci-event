@@ -9,6 +9,7 @@ import {
   Modal,
   Toast,
   Spinner,
+  BottomSheet,
 } from '@sci-event/ui';
 import styles from './App.module.css';
 
@@ -20,6 +21,7 @@ const selectOptions = [
 
 export default function App() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [sheetOpen, setSheetOpen] = useState(false);
   const [checkboxChecked, setCheckboxChecked] = useState(false);
   const [radioValue, setRadioValue] = useState('online');
 
@@ -113,6 +115,18 @@ export default function App() {
           <Spinner size="md" label="Загрузка md" />
           <Spinner size="lg" label="Загрузка lg" />
         </div>
+      </section>
+
+      <section className={styles.section}>
+        <Text as="h2" size="xl" weight="semibold">BottomSheet</Text>
+        <Button onClick={() => setSheetOpen(true)}>Открыть bottom sheet</Button>
+        <BottomSheet open={sheetOpen} onClose={() => setSheetOpen(false)} title="Фильтры">
+          <Text>Контент bottom sheet — используется как модалка на мобилках.</Text>
+          <div className={styles.modalActions}>
+            <Button variant="primary" onClick={() => setSheetOpen(false)}>Применить</Button>
+            <Button variant="ghost" onClick={() => setSheetOpen(false)}>Сбросить</Button>
+          </div>
+        </BottomSheet>
       </section>
 
       <section className={styles.section}>
