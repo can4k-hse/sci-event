@@ -18,18 +18,22 @@ import { Speaker } from '../../mocks/speakers';
 
 type SpeakerCardProps = {
   speaker: Speaker;
+  instituteName: string; // резолвится снаружи через institutes из event.ts
+  countryName: string;   // резолвится снаружи через countries из event.ts
 };
 ```
 
 ## `SpeakerCard.tsx`
 Содержимое карточки:
 - Иконка-аватар: `<Icon name="User" />` в круглом контейнере
-- Имя: `<Text weight="bold">`
-- Организация: `<Text size="sm">`
-- Тема доклада: `<Text size="sm">`
+- Имя и фамилия: `<Text weight="bold">{speaker.name} {speaker.surname}</Text>`
+- Институт: `<Text size="sm">{instituteName}</Text>`
+- Страна: `<Text size="sm">{countryName}</Text>`
+- Биография: `<Text size="sm">{speaker.bio}</Text>` (обрезать через CSS `line-clamp`)
 
 ## CSS
 - Карточка: `border`, `border-radius`, `padding`
+- Bio: `-webkit-line-clamp: 3` для обрезки длинного текста
 - Только `var(--color-*)` токены
 - Никаких inline-стилей
 
@@ -39,7 +43,7 @@ type SpeakerCardProps = {
 - `classnames` если нужна конкатенация классов
 
 ## Зависимости
-- TICKET-03 (тип `Speaker` из мока)
+- TICKET-03 (тип `Speaker` из speakers.ts, `institutes` и `countries` из event.ts)
 
 ## Проверка
 - Компонент рендерится без ошибок
