@@ -14,22 +14,26 @@ src/pages/HomePage/
 ## Секции страницы
 
 ### 1. Hero
-- Название конференции: `<Text as="h1" size="xxxl" weight="bold">`
-- Подзаголовок: `<Text size="lg">`
-- Дата и место: `<Text>` + `<Icon name="Calendar" />`, `<Icon name="MapPin" />`
+- Название конференции: `<Text as="h1" size="xxxl" weight="bold">{event.name}</Text>`
+- Описание: `<Text size="lg">{event.description}</Text>`
+- Дата: `<Icon name="Calendar" />` + `<Text>` (форматировать `event.start_time` unix → читаемая дата)
+- Место: `<Icon name="MapPin" />` + `<Text>{place.name}, {place.adress}</Text>` (резолвить через `event.place_id` → `places`)
 - Две кнопки: `<Button variant="primary">Программа</Button>` (→ `/schedule`) и `<Button variant="secondary">Спикеры</Button>` (→ `/speakers`)
 
 ### 2. О конференции
-- Заголовок секции: `<Text as="h2" ...>`
-- Описание из `conference.description`
+- Заголовок секции: `<Text as="h2">О конференции</Text>`
+- Организатор: `<Text>` (резолвить `event.company_id` → `companies`)
 
 ### 3. Ключевые спикеры (preview)
-- Заголовок: «Ключевые спикеры»
+- Заголовок: `<Text as="h2">Ключевые спикеры</Text>`
 - Grid из 3 карточек `<SpeakerCard>` (первые 3 из `speakers`)
+  - `instituteName` резолвить: `institutes.find(i => i.institute_id === s.institute_id)?.name ?? ''`
+  - `countryName` резолвить: `countries.find(c => c.country_id === s.country_id)?.name ?? ''`
 - Кнопка «Все спикеры» → `/speakers`
 
 ## Данные
-- Все данные из `src/mocks/conference.ts` и `src/mocks/speakers.ts`
+- `event`, `places`, `companies`, `countries`, `institutes` из `src/mocks/event.ts`
+- `speakers` из `src/mocks/speakers.ts`
 - Никакого useState / useEffect — просто импорт констант
 
 ## Правила

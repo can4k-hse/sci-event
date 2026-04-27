@@ -1,7 +1,7 @@
 # TICKET-08: SchedulePage — программа конференции
 
 ## Context
-Страница со списком всех докладов, сгруппированных по дням.
+Страница со списком всех слотов конференции, отсортированных по времени.
 
 ## Файлы (создать)
 ```
@@ -14,24 +14,25 @@ src/pages/SchedulePage/
 ## Структура страницы
 
 - Заголовок: `<Text as="h1">Программа</Text>`
-- Для каждого `ScheduleDay`:
-  - Заголовок дня: `<Text as="h2">{day.date}</Text>`
-  - Список `<ScheduleItem>` для каждой сессии
-  - Для поиска спикера: `speakers.find(s => s.id === session.speakerId)`
+- Список слотов, отсортированных по `slot.time`, каждый рендерится через `<ScheduleItem>`:
+  - `presentation` = `presentations.find(p => p.presentation_id === slot.presentation_id)`
+  - `speakers` = `presentation.speakerIds.map(id => speakers.find(s => s.speaker_id === id)).filter(Boolean)`
+  - `venue` = `venues.find(v => v.venue_id === slot.venue_id)`
 
 ## Данные
-- `schedule` из `src/mocks/schedule.ts`
+- `slots`, `presentations` из `src/mocks/slots.ts`
 - `speakers` из `src/mocks/speakers.ts`
+- `venues` из `src/mocks/event.ts`
 - Только импорт констант — никакого state
 
 ## CSS
-- Секции дней с отступами между ними
+- Список с отступами между элементами
 - Только `var(--color-*)` токены
 
 ## Зависимости
 - TICKET-03 (моки), TICKET-06 (ScheduleItem)
 
 ## Проверка
-- Все дни и сессии отображаются
-- Имена спикеров корректно маппятся по `speakerId`
+- Все слоты отображаются, отсортированы по времени
+- Спикеры и залы корректно маппятся по id
 - type-check чистый
