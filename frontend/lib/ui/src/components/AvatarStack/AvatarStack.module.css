@@ -1,0 +1,35 @@
+@import '../../tokens/colors.css';
+
+.stack {
+  display: inline-flex;
+  align-items: center;
+}
+
+.item {
+  margin-left: -8px;
+  border: 2px solid var(--color-white);
+  border-radius: 50%;
+}
+
+.item:first-child {
+  margin-left: 0;
+}
+
+.overflow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--color-neutral-200);
+  color: var(--color-neutral-600);
+  font-size: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  margin-left: -8px;
+  border: 2px solid var(--color-white);
+  flex-shrink: 0;
+}
+
+.overflowSm { width: 28px; height: 28px; font-size: 10px; }
+.overflowMd { width: 40px; height: 40px; font-size: 12px; }
+.overflowLg { width: 56px; height: 56px; font-size: 14px; }

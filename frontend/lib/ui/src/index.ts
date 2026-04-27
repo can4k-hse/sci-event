@@ -9,3 +9,5 @@ export * from "./components/Modal";
 export * from "./components/BottomSheet";
 export * from "./components/Toast";
 export * from "./components/Spinner";
+export * from "./components/Avatar";
+export * from "./components/AvatarStack";
