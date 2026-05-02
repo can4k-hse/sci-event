@@ -189,6 +189,9 @@ import { Icon } from '@sci-event/ui';
 | `Toast` | Уведомление. variant: info/success/warning/error |
 | `Spinner` | Индикатор загрузки |
 | `Icon` | SVG-иконка из feather-icons |
+| `Avatar` | Аватар пользователя с fallback-иконкой |
+| `AvatarStack` | Стек аватаров (группа пользователей) |
+| `Picture` | Иллюстрация из S3. `name`: `PictureName` union, `size`: число/строка |
 
 ---
 

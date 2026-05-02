@@ -11,3 +11,4 @@ export * from "./components/Toast";
 export * from "./components/Spinner";
 export * from "./components/Avatar";
 export * from "./components/AvatarStack";
+export * from "./components/Picture";
