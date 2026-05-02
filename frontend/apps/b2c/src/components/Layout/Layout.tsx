@@ -18,13 +18,12 @@ const Layout = () => {
         <Outlet />
       </main>
 
-      <BottomSheet open={isOpen} onClose={handleClose}>
+      <BottomSheet open={isOpen} onClose={handleClose} title="Участвовать в мероприятии">
         <EventRegister
           event={event}
           speakers={speakers}
           place={places.find(p => p.place_id === event.place_id)!}
           onRegister={handleClose}
-          onClose={handleClose}
         />
       </BottomSheet>
     </div>

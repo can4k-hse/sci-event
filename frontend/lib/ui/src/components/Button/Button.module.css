@@ -19,11 +19,11 @@
 
 /* Variants */
 .primary {
-  background-color: var(--color-primary-600);
+  background-color: var(--color-violet-600);
   color: var(--color-white);
 }
-.primary:hover { background-color: var(--color-primary-700); }
-.primary:active { background-color: var(--color-primary-800); }
+.primary:hover { background-color: var(--color-violet-700); }
+.primary:active { background-color: var(--color-violet-900); }
 
 .secondary {
   background-color: var(--color-neutral-100);
@@ -34,10 +34,10 @@
 
 .ghost {
   background-color: transparent;
-  color: var(--color-primary-600);
+  color: var(--color-violet-600);
 }
-.ghost:hover { background-color: var(--color-primary-50); }
-.ghost:active { background-color: var(--color-primary-100); }
+.ghost:hover { background-color: var(--color-violet-50); }
+.ghost:active { background-color: var(--color-violet-100); }
 
 .button:disabled {
   opacity: 0.4;

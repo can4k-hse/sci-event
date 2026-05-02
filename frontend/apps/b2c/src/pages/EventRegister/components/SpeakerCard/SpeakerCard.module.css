@@ -1,0 +1,40 @@
+.card {
+  background: var(--color-violet-50);
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.avatar {
+  margin-bottom: 6px;
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.speakerName {
+  color: var(--color-violet-900);
+}
+
+.company {
+  color: var(--color-violet-700);
+}
+
+.tag {
+  margin-top: 2px;
+  background: var(--color-violet-100);
+  border-radius: 100px;
+  padding: 2px 8px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.tagText {
+  color: var(--color-violet-600);
+}

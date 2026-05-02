@@ -60,7 +60,7 @@ lib/{name}/
 │   │       └── index.ts                   # Re-export
 │   ├── tokens/
 │   │   ├── colors.css                     # CSS custom properties (:root)
-│   │   └── fonts.css                      # @font-face декларации (Montserrat)
+│   │   └── fonts.css                      # @font-face декларации (Inter)
 │   ├── css-modules.d.ts                   # Типы для *.module.css
 │   └── index.ts                           # Barrel export всего пакета
 ├── dist/                                  # Артефакты сборки (не коммитить)
@@ -118,17 +118,17 @@ const cls = cn(styles.button, styles[variant], styles[size], className);
 - Токены живут в `src/tokens/colors.css` как `:root { --color-* }` переменные
 - Каждый компонент подключает их через `@import '../../tokens/colors.css'` в своём `.module.css`
 - Потребитель библиотеки ничего не импортирует руками — токены подтягиваются автоматически при использовании компонента
-- Шкала: `--color-{category}-{50..900}`, категории: `primary`, `neutral`, `success`, `warning`, `error`
+- Шкала: `--color-{category}-{50..900}`, категории: `primary`, `neutral`, `success`, `warning`, `error`, `violet`
 - Специальные токены: `--color-overlay` (rgba overlay), `--color-shadow` (rgba тень), `--color-white`, `--color-black`
 - Экспорт: `@sci-event/ui/tokens/colors.css`, `@sci-event/ui/tokens/fonts.css`
 - **Нельзя хардкодить цвета** — никаких hex, rgb(), rgba() в компонентах. Нет нужного токена — добавь в `colors.css`
 
 ### Шрифты
-- Montserrat самохостится через `@fontsource/montserrat` (зависимость `@sci-event/ui`)
+- Inter самохостится через `@fontsource/inter` (зависимость `@sci-event/ui`)
 - `@font-face` декларации в `lib/ui/src/tokens/fonts.css` — latin + cyrillic subsets, веса 400/500/600/700
 - `font-display: block` — нет FOUT, нет прыжка
 - Приложение подключает: `@import '@sci-event/ui/tokens/fonts.css'` в своём `index.css`
-- `font-family: 'Montserrat', sans-serif` задаётся в глобальном `body` стиле приложения
+- `font-family: 'Inter', sans-serif` задаётся в глобальном `body` стиле приложения
 
 ### Иконки
 - Иконки через компонент `<Icon>` из `@sci-event/ui`, базируется на `react-feather`

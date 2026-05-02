@@ -42,13 +42,13 @@ const EventRegister = ({ event, speakers, place, onRegister, onSpeakersAll }: Ev
             <Text size="sm" color="color-neutral-600">{descText}</Text>
             {needsTruncation && (
               <button className={styles.expandBtn} onClick={() => setExpanded(e => !e)}>
-                <Text as="span" size="sm" color="color-primary-600">
+                <Text as="span" size="sm" color="color-violet-500">
                   {expanded ? 'Скрыть' : 'Читать подробнее'}
                 </Text>
                 <Icon
                   name={expanded ? 'ChevronUp' : 'ChevronDown'}
                   size={14}
-                  color="color-primary-600"
+                  color="color-violet-500"
                 />
               </button>
             )}
@@ -77,27 +77,27 @@ const EventRegister = ({ event, speakers, place, onRegister, onSpeakersAll }: Ev
         </div>
       </section>
 
-      <section className={styles.section}>
-        <Text weight="bold">Место проведения</Text>
-        <div className={styles.venue}>
+      <div className={styles.venue}>
+        <div className={styles.venueLeft}>
+          <Text weight="bold">Место проведения</Text>
           <div className={styles.venueInfo}>
-            <Icon name="MapPin" size={18} color="color-primary-500" />
+            <Icon name="MapPin" size={18} color="color-neutral-900" />
             <div className={styles.venueText}>
-              <Text size="sm" weight="medium">{place.name}</Text>
-              <Text size="sm" color="color-neutral-600">{place.adress}</Text>
+              <Text size="xs" weight="medium">{place.name}</Text>
+              <Text size="xs" color="color-neutral-600">{place.adress}</Text>
             </div>
           </div>
-          <div className={styles.mapThumb} />
         </div>
-      </section>
+        <div className={styles.mapThumb} />
+      </div>
 
       <div className={styles.cta}>
         <Button variant="primary" size="lg" className={styles.registerBtn} onClick={onRegister}>
           <Icon name="CreditCard" size={18} color="color-white" />
-          Зарегистрироваться как участник
+          Буду учавствовать
         </Button>
         <div className={styles.ctaHint}>
-          <Icon name="Star" size={14} color="color-primary-500" />
+          <Icon name="Star" size={14} color="color-violet-500" />
           <Text as="span" size="sm" color="color-neutral-600">Это займёт меньше минуты</Text>
         </div>
       </div>
