@@ -1,5 +1,7 @@
 type EventHeroProps = {
-  title: string;
+  name: string;
+  dateLabel: string;
+  locationLabel: string;
 };
 
 export type { EventHeroProps };

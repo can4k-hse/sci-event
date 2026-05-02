@@ -34,6 +34,7 @@ type Event = {
   place_id: number;
   company_id: number;
   start_time: number;
+  end_time?: number;
 };
 
 export type { Country, Institute, Company, Place, Venue, Event };
@@ -56,7 +57,7 @@ export const companies: Company[] = [
 ];
 
 export const places: Place[] = [
-  { place_id: 1, name: 'Конгресс-центр НИУ ВШЭ', adress: 'Москва, ул. Мясницкая, 11' },
+  { place_id: 1, name: 'Технопарк Сколково', adress: 'Москва, Большой бульвар, 42, стр. 1' },
 ];
 
 export const venues: Venue[] = [
@@ -67,9 +68,10 @@ export const venues: Venue[] = [
 
 export const event: Event = {
   event_id: 1,
-  name: 'Научная конференция по искусственному интеллекту 2025',
-  description: 'Ежегодная конференция, объединяющая ведущих учёных и практиков в области машинного обучения, нейронных сетей и компьютерного зрения. Программа включает пленарные доклады, секционные заседания и постерную сессию.',
+  name: 'AI & Data Future 2025',
+  description: 'AI & Data Future — крупнейшая конференция о будущем искусственного интеллекта, данных и цифровых технологий. Два дня докладов, дискуссий и нетворкинга с лидерами индустрии. Программа включает пленарные доклады, секционные заседания, воркшопы и постерную сессию.',
   place_id: 1,
   company_id: 1,
-  start_time: 1748512800,
+  start_time: 1747872000,
+  end_time: 1747958400,
 };

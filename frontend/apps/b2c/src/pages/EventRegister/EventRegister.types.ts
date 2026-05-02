@@ -5,6 +5,8 @@ type SpeakerItem = {
   name: string;
   surname: string;
   src?: string;
+  company?: string;
+  tag?: string;
 };
 
 type EventRegisterProps = {
@@ -12,7 +14,7 @@ type EventRegisterProps = {
   speakers: SpeakerItem[];
   place: Place;
   onRegister: () => void;
-  onClose: () => void;
+  onSpeakersAll?: () => void;
 };
 
 export type { SpeakerItem, EventRegisterProps };

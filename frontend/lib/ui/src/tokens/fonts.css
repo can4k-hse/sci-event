@@ -1,7 +1,7 @@
 @font-face {
-  font-family: 'Montserrat';
-  src: url('@fontsource/montserrat/files/montserrat-latin-400-normal.woff2') format('woff2'),
-       url('@fontsource/montserrat/files/montserrat-latin-400-normal.woff') format('woff');
+  font-family: 'Inter';
+  src: url('@fontsource/inter/files/inter-latin-400-normal.woff2') format('woff2'),
+       url('@fontsource/inter/files/inter-latin-400-normal.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: block;
@@ -9,9 +9,9 @@
 }
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url('@fontsource/montserrat/files/montserrat-cyrillic-400-normal.woff2') format('woff2'),
-       url('@fontsource/montserrat/files/montserrat-cyrillic-400-normal.woff') format('woff');
+  font-family: 'Inter';
+  src: url('@fontsource/inter/files/inter-cyrillic-400-normal.woff2') format('woff2'),
+       url('@fontsource/inter/files/inter-cyrillic-400-normal.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: block;
@@ -19,9 +19,9 @@
 }
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url('@fontsource/montserrat/files/montserrat-latin-500-normal.woff2') format('woff2'),
-       url('@fontsource/montserrat/files/montserrat-latin-500-normal.woff') format('woff');
+  font-family: 'Inter';
+  src: url('@fontsource/inter/files/inter-latin-500-normal.woff2') format('woff2'),
+       url('@fontsource/inter/files/inter-latin-500-normal.woff') format('woff');
   font-weight: 500;
   font-style: normal;
   font-display: block;
@@ -29,9 +29,9 @@
 }
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url('@fontsource/montserrat/files/montserrat-cyrillic-500-normal.woff2') format('woff2'),
-       url('@fontsource/montserrat/files/montserrat-cyrillic-500-normal.woff') format('woff');
+  font-family: 'Inter';
+  src: url('@fontsource/inter/files/inter-cyrillic-500-normal.woff2') format('woff2'),
+       url('@fontsource/inter/files/inter-cyrillic-500-normal.woff') format('woff');
   font-weight: 500;
   font-style: normal;
   font-display: block;
@@ -39,9 +39,9 @@
 }
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url('@fontsource/montserrat/files/montserrat-latin-600-normal.woff2') format('woff2'),
-       url('@fontsource/montserrat/files/montserrat-latin-600-normal.woff') format('woff');
+  font-family: 'Inter';
+  src: url('@fontsource/inter/files/inter-latin-600-normal.woff2') format('woff2'),
+       url('@fontsource/inter/files/inter-latin-600-normal.woff') format('woff');
   font-weight: 600;
   font-style: normal;
   font-display: block;
@@ -49,9 +49,9 @@
 }
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url('@fontsource/montserrat/files/montserrat-cyrillic-600-normal.woff2') format('woff2'),
-       url('@fontsource/montserrat/files/montserrat-cyrillic-600-normal.woff') format('woff');
+  font-family: 'Inter';
+  src: url('@fontsource/inter/files/inter-cyrillic-600-normal.woff2') format('woff2'),
+       url('@fontsource/inter/files/inter-cyrillic-600-normal.woff') format('woff');
   font-weight: 600;
   font-style: normal;
   font-display: block;
@@ -59,9 +59,9 @@
 }
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url('@fontsource/montserrat/files/montserrat-latin-700-normal.woff2') format('woff2'),
-       url('@fontsource/montserrat/files/montserrat-latin-700-normal.woff') format('woff');
+  font-family: 'Inter';
+  src: url('@fontsource/inter/files/inter-latin-700-normal.woff2') format('woff2'),
+       url('@fontsource/inter/files/inter-latin-700-normal.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: block;
@@ -69,9 +69,9 @@
 }
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url('@fontsource/montserrat/files/montserrat-cyrillic-700-normal.woff2') format('woff2'),
-       url('@fontsource/montserrat/files/montserrat-cyrillic-700-normal.woff') format('woff');
+  font-family: 'Inter';
+  src: url('@fontsource/inter/files/inter-cyrillic-700-normal.woff2') format('woff2'),
+       url('@fontsource/inter/files/inter-cyrillic-700-normal.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: block;
