@@ -1,3 +1,5 @@
+export type { ColorToken } from "./tokens/ColorToken";
+export { colorToVar } from "./tokens/ColorToken";
 export * from "./components/Button";
 export * from "./components/Icon";
 export * from "./components/Text";

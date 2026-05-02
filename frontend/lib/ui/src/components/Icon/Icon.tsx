@@ -1,5 +1,7 @@
 import * as Icons from 'react-feather';
 import type { IconProps } from './Icon.types';
+import { colorToVar } from '../../tokens/ColorToken';
+import type { ColorToken } from '../../tokens/ColorToken';
 
 export type { IconProps, IconName } from './Icon.types';
 
@@ -10,5 +12,6 @@ export function Icon({ name, size = 24, strokeWidth = 2, color = 'currentColor',
     color?: string;
     className?: string;
   }>;
-  return <FeatherIcon size={size} strokeWidth={strokeWidth} color={color} className={className} />;
+  const resolvedColor = color === 'currentColor' ? 'currentColor' : colorToVar(color as ColorToken);
+  return <FeatherIcon size={size} strokeWidth={strokeWidth} color={resolvedColor} className={className} />;
 }
