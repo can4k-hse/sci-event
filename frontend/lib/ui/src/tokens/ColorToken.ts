@@ -51,6 +51,12 @@ export type ColorToken =
   | 'color-error-700'
   | 'color-error-800'
   | 'color-error-900'
+  | 'color-violet-50'
+  | 'color-violet-100'
+  | 'color-violet-500'
+  | 'color-violet-600'
+  | 'color-violet-700'
+  | 'color-violet-900'
   | 'color-overlay'
   | 'color-shadow';
 

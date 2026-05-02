@@ -51,6 +51,14 @@
   --color-warning-800: #92400e;
   --color-warning-900: #78350f;
 
+  /* Violet */
+  --color-violet-50:  #f3f2fa;
+  --color-violet-100: #e6e3f7;
+  --color-violet-500: #6761cd;
+  --color-violet-600: #988cd3;
+  --color-violet-700: #979aae;
+  --color-violet-900: #0e0d27;
+
   /* Overlay & Shadow */
   --color-overlay: rgba(0, 0, 0, 0.40);
   --color-shadow: rgba(0, 0, 0, 0.12);

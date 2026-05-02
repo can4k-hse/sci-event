@@ -1,34 +1,108 @@
-import { AvatarStack, Button, Text } from '@sci-event/ui';
+import { useState } from 'react';
+import dayjs from 'dayjs';
+import 'dayjs/locale/ru';
+import { Button, Icon, Text } from '@sci-event/ui';
 import { EventHero } from './components/EventHero';
-import { EventInfoSection } from './components/EventInfoSection';
+import { SpeakerCard } from './components/SpeakerCard';
 import styles from './EventRegister.module.css';
 import type { EventRegisterProps } from './EventRegister.types';
 
-const EventRegister = ({ event, speakers, place, onRegister, onClose }: EventRegisterProps) => (
-  <div className={styles.root}>
-    <EventHero title={event.name} />
+const TRUNCATE_LEN = 180;
 
-    <div className={styles.scroll}>
-      <EventInfoSection label="Описание">
-        <Text>{event.description}</Text>
-      </EventInfoSection>
+const formatDateRange = (start: number, end?: number): string => {
+  const s = dayjs.unix(start).locale('ru');
+  if (!end) return s.format('D MMMM YYYY');
+  const e = dayjs.unix(end).locale('ru');
+  if (s.month() === e.month() && s.year() === e.year()) {
+    return `${s.date()}–${e.date()} ${s.format('MMMM YYYY')}`;
+  }
+  return `${s.format('D MMMM')} – ${e.format('D MMMM YYYY')}`;
+};
 
-      <EventInfoSection label="Эксперты">
-        <AvatarStack items={speakers} max={3} size="md" />
-      </EventInfoSection>
+const EventRegister = ({ event, speakers, place, onRegister, onSpeakersAll }: EventRegisterProps) => {
+  const [expanded, setExpanded] = useState(false);
 
-      <EventInfoSection label="Место проведения">
-        <a href={`https://maps.yandex.ru/?text=${encodeURIComponent(place.adress)}`}>
-          <Text as="span">{place.name}</Text>
-        </a>
-      </EventInfoSection>
+  const needsTruncation = event.description.length > TRUNCATE_LEN;
+  const descText = needsTruncation && !expanded
+    ? event.description.slice(0, TRUNCATE_LEN) + '…'
+    : event.description;
+
+  const dateLabel = formatDateRange(event.start_time, event.end_time);
+
+  return (
+    <div className={styles.root}>
+      <EventHero name={event.name} dateLabel={dateLabel} locationLabel={place.name} />
+
+      <hr className={styles.divider} />
+
+      <section className={styles.section}>
+        <Text weight="bold">О мероприятии</Text>
+        <div className={styles.about}>
+          <div className={styles.aboutText}>
+            <Text size="sm" color="color-neutral-600">{descText}</Text>
+            {needsTruncation && (
+              <button className={styles.expandBtn} onClick={() => setExpanded(e => !e)}>
+                <Text as="span" size="sm" color="color-primary-600">
+                  {expanded ? 'Скрыть' : 'Читать подробнее'}
+                </Text>
+                <Icon
+                  name={expanded ? 'ChevronUp' : 'ChevronDown'}
+                  size={14}
+                  color="color-primary-600"
+                />
+              </button>
+            )}
+          </div>
+          <div className={styles.videoThumb}>
+            <div className={styles.playBtn}>
+              <Icon name="Play" size={22} color="color-white" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.sectionHead}>
+          <Text weight="bold">Спикеры</Text>
+          {onSpeakersAll && (
+            <button className={styles.linkBtn} onClick={onSpeakersAll}>
+              <Text as="span" size="sm" color="color-primary-600">Смотреть всех</Text>
+            </button>
+          )}
+        </div>
+        <div className={styles.speakersGrid}>
+          {speakers.map(s => (
+            <SpeakerCard key={s.speaker_id} speaker={s} />
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <Text weight="bold">Место проведения</Text>
+        <div className={styles.venue}>
+          <div className={styles.venueInfo}>
+            <Icon name="MapPin" size={18} color="color-primary-500" />
+            <div className={styles.venueText}>
+              <Text size="sm" weight="medium">{place.name}</Text>
+              <Text size="sm" color="color-neutral-600">{place.adress}</Text>
+            </div>
+          </div>
+          <div className={styles.mapThumb} />
+        </div>
+      </section>
+
+      <div className={styles.cta}>
+        <Button variant="primary" size="lg" className={styles.registerBtn} onClick={onRegister}>
+          <Icon name="CreditCard" size={18} color="color-white" />
+          Зарегистрироваться как участник
+        </Button>
+        <div className={styles.ctaHint}>
+          <Icon name="Star" size={14} color="color-primary-500" />
+          <Text as="span" size="sm" color="color-neutral-600">Это займёт меньше минуты</Text>
+        </div>
+      </div>
     </div>
-
-    <div className={styles.actions}>
-      <Button variant="primary" onClick={onRegister}>Зарегистрироваться</Button>
-      <Button variant="ghost" onClick={onClose}>Отложить</Button>
-    </div>
-  </div>
-);
+  );
+};
 
 export { EventRegister };
