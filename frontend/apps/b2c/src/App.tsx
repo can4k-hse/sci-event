@@ -29,18 +29,18 @@ export default function App() {
     <div className={styles.root}>
       <section className={styles.section}>
         <Text as="h1" size="xxxl" weight="bold">sci-event B2C</Text>
-        <Text color="muted">Тестовая страница компонентов @sci-event/ui</Text>
+        <Text color="color-neutral-600">Тестовая страница компонентов @sci-event/ui</Text>
       </section>
 
       <section className={styles.section}>
         <Text as="h2" size="xl" weight="semibold">Text</Text>
-        <Text size="xs" color="subtle">Размер xs, цвет subtle</Text>
-        <Text size="sm" color="muted">Размер sm, цвет muted</Text>
+        <Text size="xs" color="color-neutral-400">Размер xs, цвет subtle</Text>
+        <Text size="sm" color="color-neutral-600">Размер sm, цвет muted</Text>
         <Text size="md">Размер md (дефолт)</Text>
         <Text size="lg" weight="medium">Размер lg, medium</Text>
-        <Text size="xl" weight="semibold" color="primary">Размер xl, primary</Text>
-        <Text size="xxl" weight="bold" color="success">Размер xxl, success</Text>
-        <Text size="xxxl" weight="bold" color="error">Размер xxxl, error</Text>
+        <Text size="xl" weight="semibold" color="color-primary-600">Размер xl, primary</Text>
+        <Text size="xxl" weight="bold" color="color-success-600">Размер xxl, success</Text>
+        <Text size="xxxl" weight="bold" color="color-error-600">Размер xxxl, error</Text>
       </section>
 
       <section className={styles.section}>
@@ -90,7 +90,7 @@ export default function App() {
           onChange={() => setRadioValue('offline')}
         />
         <Radio label="Гибрид (недоступно)" name="format" value="hybrid" disabled />
-        <Text size="sm" color="muted">Выбрано: {radioValue}</Text>
+        <Text size="sm" color="color-neutral-600">Выбрано: {radioValue}</Text>
       </section>
 
       <section className={styles.sectionLg}>
