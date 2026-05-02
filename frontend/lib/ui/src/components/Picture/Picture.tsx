@@ -4,9 +4,8 @@ import type { PictureProps } from './Picture.types';
 
 const BASE_URL = 'https://storage.yandexcloud.net/sci-event-static/AppState';
 
-export function Picture({ name, size, className }: PictureProps) {
-  const filename = name.split('_').slice(1).join('_');
-  const src = `${BASE_URL}/${filename}.png`;
+export function Picture<T extends number>({ name, size, className }: PictureProps<T>) {
+  const src = `${BASE_URL}/${name}.png`;
 
   return (
     <img

@@ -6,8 +6,10 @@ export type PictureName =
   | 'g320_sms'
   | 'g320_wifi';
 
-export type PictureProps = {
-  name: PictureName;
-  size?: number | string;
+export type PictureNameBySize<T extends number> = Extract<PictureName, `g${T}_${string}`>;
+
+export type PictureProps<T extends number> = {
+  name: PictureNameBySize<T>;
+  size: T;
   className?: string;
 };
