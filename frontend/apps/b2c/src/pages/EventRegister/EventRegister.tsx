@@ -94,7 +94,7 @@ const EventRegister = ({ event, speakers, place, onRegister, onSpeakersAll }: Ev
       <div className={styles.cta}>
         <Button variant="primary" size="lg" className={styles.registerBtn} onClick={onRegister}>
           <Icon name="CreditCard" size={18} color="color-white" />
-          Буду учавствовать
+          Буду участвовать
         </Button>
         <div className={styles.ctaHint}>
           <Icon name="Star" size={14} color="color-violet-500" />
