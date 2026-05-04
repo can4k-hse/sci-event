@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import cn from 'classnames';
-import { Icon } from '@sci-event/ui';
+import { Button, Text } from '@sci-event/ui';
 import { useSheetNavigation } from '../../navigation';
 import styles from './SheetStack.module.css';
 
@@ -20,14 +20,10 @@ export function SheetStack() {
     <div className={styles.root}>
       <div className={styles.header}>
         {canGoBack && (
-          <button className={styles.backBtn} onClick={pop} aria-label="Назад">
-            <Icon name="ChevronLeft" size={20} />
-          </button>
+          <Button iconOnly iconName="ChevronLeft" size="md" variant="secondary" onClick={pop} aria-label="Назад" />
         )}
-        {top.title && <span className={styles.title}>{top.title}</span>}
-        <button className={styles.closeBtn} onClick={closeAll} aria-label="Закрыть">
-          <Icon name="X" size={16} />
-        </button>
+        {top.title && <Text as="span" size="md" weight="semibold" className={styles.title}>{top.title}</Text>}
+        <Button iconOnly iconName="X" size="md" variant="secondary" onClick={closeAll} aria-label="Закрыть" />
       </div>
       <div
         key={top.key}
