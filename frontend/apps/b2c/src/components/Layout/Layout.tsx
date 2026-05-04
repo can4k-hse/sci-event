@@ -1,33 +1,58 @@
+import { useEffect, useRef } from 'react';
 import { Outlet, useSearchParams } from 'react-router-dom';
 import { BottomSheet } from '@sci-event/ui';
+import { SheetNavigationProvider, useSheetNavigation } from '../../navigation';
+import { SheetStack } from '../SheetStack';
 import { EventRegister } from '../../pages/EventRegister';
+import { SpeakersAll } from '../../pages/SpeakersAll';
 import { event, places } from '../../mocks/event';
 import { speakers } from '../../mocks/speakers';
 import styles from './Layout.module.css';
 
-const Layout = () => {
+const LayoutInner = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const isOpen = searchParams.has('register');
+  const { isOpen, closeAll, push } = useSheetNavigation();
+  const seededRef = useRef(false);
 
-  const handleClose = () =>
+  useEffect(() => {
+    if (!seededRef.current && searchParams.has('register')) {
+      seededRef.current = true;
+      push(
+        <EventRegister
+          event={event}
+          speakers={speakers}
+          place={places.find(p => p.place_id === event.place_id)!}
+          onRegister={closeAll}
+          onSpeakersAll={() =>
+            push(<SpeakersAll speakers={speakers} />, { title: 'Спикеры' })
+          }
+        />,
+        { title: 'Участвовать в мероприятии' }
+      );
+    }
+  }, []);
+
+  const handleClose = () => {
+    closeAll();
     setSearchParams(p => { p.delete('register'); return p; });
+  };
 
   return (
     <div className={styles.layout}>
       <main className={styles.main}>
         <Outlet />
       </main>
-
-      <BottomSheet open={isOpen} onClose={handleClose} title="Участвовать в мероприятии">
-        <EventRegister
-          event={event}
-          speakers={speakers}
-          place={places.find(p => p.place_id === event.place_id)!}
-          onRegister={handleClose}
-        />
+      <BottomSheet open={isOpen} onClose={handleClose}>
+        <SheetStack />
       </BottomSheet>
     </div>
   );
 };
+
+const Layout = () => (
+  <SheetNavigationProvider>
+    <LayoutInner />
+  </SheetNavigationProvider>
+);
 
 export { Layout };

@@ -1,0 +1,64 @@
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--color-neutral-200);
+  flex-shrink: 0;
+}
+
+.backBtn,
+.closeBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  color: var(--color-neutral-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s, color 0.15s;
+  flex-shrink: 0;
+}
+
+.backBtn:hover,
+.closeBtn:hover {
+  background: var(--color-neutral-100);
+  color: var(--color-neutral-900);
+}
+
+.title {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-neutral-900);
+}
+
+.frame {
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.enterPush {
+  animation: slideInFromRight 0.22s ease;
+}
+
+.enterPop {
+  animation: slideInFromLeft 0.22s ease;
+}
+
+@keyframes slideInFromRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+  from { transform: translateX(-40%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}

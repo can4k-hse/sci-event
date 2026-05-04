@@ -8,15 +8,6 @@ import { Icon } from '../Icon';
 export type { BottomSheetProps } from './BottomSheet.types';
 
 export function BottomSheet({ open, onClose, title, children, className }: BottomSheetProps) {
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
-    document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
-  }, [open, onClose]);
-
   if (!open) return null;
 
   return createPortal(

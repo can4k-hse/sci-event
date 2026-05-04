@@ -66,7 +66,7 @@ const EventRegister = ({ event, speakers, place, onRegister, onSpeakersAll }: Ev
           <Text weight="bold">Спикеры</Text>
           {onSpeakersAll && (
             <button className={styles.linkBtn} onClick={onSpeakersAll}>
-              <Text as="span" size="sm" color="color-primary-600">Смотреть всех</Text>
+              <Text as="span" size="sm" color="color-violet-500">Смотреть всех</Text>
             </button>
           )}
         </div>
