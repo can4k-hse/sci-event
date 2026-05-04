@@ -35,7 +35,7 @@ sci-event/
 - **Package manager:** npm 10+ с native workspaces
 - **Build orchestration:** Turborepo 2.x
 - **Node:** >= 18.0.0
-- **Компонентная библиотека:** TypeScript + TSC (без Vite)
+- **Компонентная библиотека:** TypeScript + Vite 6 + vite-plugin-dts (lib mode)
 - **Приложения:** TypeScript + Vite 6 + @vitejs/plugin-react
 
 ---
@@ -60,12 +60,14 @@ lib/{name}/
 │   │       └── index.ts                   # Re-export
 │   ├── tokens/
 │   │   ├── colors.css                     # CSS custom properties (:root)
-│   │   └── fonts.css                      # @font-face декларации (Inter)
+│   │   ├── fonts.css                      # @font-face декларации (Inter)
+│   │   └── ColorToken.ts                  # ColorToken type union + colorToVar()
 │   ├── css-modules.d.ts                   # Типы для *.module.css
 │   └── index.ts                           # Barrel export всего пакета
 ├── dist/                                  # Артефакты сборки (не коммитить)
 ├── package.json
-└── tsconfig.json
+├── tsconfig.json
+└── vite.config.ts                         # Vite lib build + vite-plugin-dts
 ```
 
 ### Структура app-пакета (`apps/*`)
@@ -73,10 +75,20 @@ lib/{name}/
 apps/{name}/
 ├── src/
 │   ├── App.tsx
-│   ├── App.module.css     # CSS Modules — никаких inline-стилей
+│   ├── App.module.css          # CSS Modules — никаких inline-стилей
 │   ├── main.tsx
-│   ├── index.css          # Глобальные стили: импорт fonts.css + body reset
-│   ├── css-modules.d.ts   # Типы для *.module.css
+│   ├── index.css               # Глобальные стили: импорт fonts.css + body reset
+│   ├── css-modules.d.ts        # Типы для *.module.css
+│   ├── components/             # Переиспользуемые компоненты приложения
+│   │   ├── Layout/
+│   │   ├── SheetStack/         # Навигационный стек BottomSheet
+│   │   └── TalkCard/
+│   ├── mocks/                  # Временные моковые данные (event, speakers, slots)
+│   ├── navigation/             # SheetNavigationContext, Provider, хук
+│   ├── pages/                  # Экраны приложения
+│   │   ├── AboutSpeaker/
+│   │   ├── EventRegister/      # Может содержать вложенные components/
+│   │   └── SpeakersAll/
 │   └── assets/
 ├── public/
 ├── package.json
@@ -120,6 +132,7 @@ const cls = cn(styles.button, styles[variant], styles[size], className);
 - Потребитель библиотеки ничего не импортирует руками — токены подтягиваются автоматически при использовании компонента
 - Шкала: `--color-{category}-{50..900}`, категории: `primary`, `neutral`, `success`, `warning`, `error`, `violet`
 - Специальные токены: `--color-overlay` (rgba overlay), `--color-shadow` (rgba тень), `--color-white`, `--color-black`
+- Типизированный доступ к токенам: `ColorToken` (union-тип) и `colorToVar(token)` из `@sci-event/ui`
 - Экспорт: `@sci-event/ui/tokens/colors.css`, `@sci-event/ui/tokens/fonts.css`
 - **Нельзя хардкодить цвета** — никаких hex, rgb(), rgba() в компонентах. Нет нужного токена — добавь в `colors.css`
 
