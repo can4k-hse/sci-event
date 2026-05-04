@@ -8,6 +8,15 @@
   gap: 4px;
 }
 
+.clickable {
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.clickable:hover {
+  background: var(--color-violet-100);
+}
+
 .avatar {
   margin-bottom: 6px;
 }
@@ -16,25 +25,4 @@
   display: flex;
   flex-direction: column;
   gap: 1px;
-}
-
-.speakerName {
-  color: var(--color-violet-900);
-}
-
-.company {
-  color: var(--color-violet-700);
-}
-
-.tag {
-  margin-top: 2px;
-  background: var(--color-violet-100);
-  border-radius: 100px;
-  padding: 2px 8px;
-  display: inline-flex;
-  align-items: center;
-}
-
-.tagText {
-  color: var(--color-violet-600);
 }

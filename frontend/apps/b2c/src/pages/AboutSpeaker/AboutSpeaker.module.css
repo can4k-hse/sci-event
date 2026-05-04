@@ -1,0 +1,61 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.heroInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.heroName {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.heroMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* Bio */
+.bio {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Section */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Talks */
+.talks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Expertise */
+.expertiseTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
