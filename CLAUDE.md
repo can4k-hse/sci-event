@@ -192,6 +192,7 @@ import { Icon } from '@sci-event/ui';
 | `Avatar` | Аватар пользователя с fallback-иконкой |
 | `AvatarStack` | Стек аватаров (группа пользователей) |
 | `Picture` | Иллюстрация из S3. `name`: `PictureName` union, `size`: число/строка |
+| `Tag` | Тег/бейдж. `variant`: violet/neutral/success/warning/error |
 
 ---
 

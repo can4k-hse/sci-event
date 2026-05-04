@@ -14,3 +14,4 @@ export * from "./components/Spinner";
 export * from "./components/Avatar";
 export * from "./components/AvatarStack";
 export * from "./components/Picture";
+export * from "./components/Tag";
