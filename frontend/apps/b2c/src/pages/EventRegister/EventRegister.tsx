@@ -4,8 +4,10 @@ import 'dayjs/locale/ru';
 import { Button, Icon, Text } from '@sci-event/ui';
 import { EventHero } from './components/EventHero';
 import { SpeakerCard } from './components/SpeakerCard';
+import { AboutSpeaker } from '../AboutSpeaker';
+import { useSheetNavigation } from '../../navigation';
 import styles from './EventRegister.module.css';
-import type { EventRegisterProps } from './EventRegister.types';
+import type { EventRegisterProps, SpeakerItem } from './EventRegister.types';
 
 const TRUNCATE_LEN = 180;
 
@@ -21,6 +23,7 @@ const formatDateRange = (start: number, end?: number): string => {
 
 const EventRegister = ({ event, speakers, place, onRegister, onSpeakersAll }: EventRegisterProps) => {
   const [expanded, setExpanded] = useState(false);
+  const { push } = useSheetNavigation();
 
   const needsTruncation = event.description.length > TRUNCATE_LEN;
   const descText = needsTruncation && !expanded
@@ -28,6 +31,13 @@ const EventRegister = ({ event, speakers, place, onRegister, onSpeakersAll }: Ev
     : event.description;
 
   const dateLabel = formatDateRange(event.start_time, event.end_time);
+
+  const handleSpeakerClick = (speaker: SpeakerItem) => {
+    push(
+      <AboutSpeaker speaker={speaker} />,
+      { title: `${speaker.name} ${speaker.surname}` }
+    );
+  };
 
   return (
     <div className={styles.root}>
@@ -72,7 +82,7 @@ const EventRegister = ({ event, speakers, place, onRegister, onSpeakersAll }: Ev
         </div>
         <div className={styles.speakersGrid}>
           {speakers.map(s => (
-            <SpeakerCard key={s.speaker_id} speaker={s} />
+            <SpeakerCard key={s.speaker_id} speaker={s} onClick={() => handleSpeakerClick(s)} />
           ))}
         </div>
       </section>

@@ -9,6 +9,7 @@ type SpeakerCardItem = {
 
 type SpeakerCardProps = {
   speaker: SpeakerCardItem;
+  onClick?: () => void;
 };
 
 export type { SpeakerCardItem, SpeakerCardProps };

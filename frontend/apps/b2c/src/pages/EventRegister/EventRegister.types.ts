@@ -1,4 +1,5 @@
 import type { Event, Place } from '../../mocks/event';
+import type { Speaker } from '../../mocks/speakers';
 
 type SpeakerItem = {
   speaker_id: number;
@@ -6,7 +7,10 @@ type SpeakerItem = {
   surname: string;
   src?: string;
   company?: string;
+  position?: string;
   tag?: string;
+  expertise?: string[];
+  talks?: Speaker['talks'];
 };
 
 type EventRegisterProps = {
