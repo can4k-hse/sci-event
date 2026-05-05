@@ -6,4 +6,5 @@ export type BottomSheetProps = {
   title?: string;
   children: ReactNode;
   className?: string;
+  overlayClassName?: string;
 };

@@ -15,3 +15,6 @@ export * from "./components/Avatar";
 export * from "./components/AvatarStack";
 export * from "./components/Picture";
 export * from "./components/Tag";
+export * from "./components/OtpInput";
+export * from "./components/Toggle";
+export * from "./components/PhoneInput";

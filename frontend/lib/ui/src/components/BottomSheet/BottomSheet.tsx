@@ -7,11 +7,11 @@ import { Icon } from '../Icon';
 
 export type { BottomSheetProps } from './BottomSheet.types';
 
-export function BottomSheet({ open, onClose, title, children, className }: BottomSheetProps) {
+export function BottomSheet({ open, onClose, title, children, className, overlayClassName }: BottomSheetProps) {
   if (!open) return null;
 
   return createPortal(
-    <div className={styles.overlay} onClick={onClose} role="dialog" aria-modal="true">
+    <div className={cn(styles.overlay, overlayClassName)} onClick={onClose} role="dialog" aria-modal="true">
       <div className={cn(styles.sheet, className)} onClick={(e) => e.stopPropagation()}>
         <div className={styles.handle} />
         {title && (

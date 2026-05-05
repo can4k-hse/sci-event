@@ -1,0 +1,42 @@
+@import '../../tokens/colors.css';
+
+.root {
+  display: flex;
+  gap: 8px;
+}
+
+.cell {
+  width: 44px;
+  height: 52px;
+  border: 1.5px solid var(--color-neutral-300);
+  border-radius: 8px;
+  background: var(--color-white);
+  color: var(--color-neutral-900);
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  box-sizing: border-box;
+}
+
+.cell:focus {
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 3px var(--color-primary-100);
+}
+
+.cell.error {
+  border-color: var(--color-error-500);
+}
+
+.cell.error:focus {
+  box-shadow: 0 0 0 3px var(--color-error-100);
+}
+
+.cell:disabled {
+  background: var(--color-neutral-100);
+  color: var(--color-neutral-300);
+  cursor: not-allowed;
+  border-color: var(--color-neutral-200);
+}
