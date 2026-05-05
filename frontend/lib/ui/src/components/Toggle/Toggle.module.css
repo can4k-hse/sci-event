@@ -1,0 +1,66 @@
+@import '../../tokens/colors.css';
+
+.root {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.root.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.label {
+  flex: 1;
+  font-size: 14px;
+  color: var(--color-neutral-900);
+}
+
+.track {
+  position: relative;
+  width: 51px;
+  height: 31px;
+  border-radius: 15.5px;
+  background: var(--color-neutral-300);
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.track.checked {
+  background: var(--color-primary-600);
+}
+
+.track.disabled {
+  background: var(--color-neutral-200);
+}
+
+.thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background: var(--color-white);
+  box-shadow: 0 1px 3px var(--color-shadow);
+  transition: transform 0.2s ease;
+}
+
+.track.checked .thumb {
+  transform: translateX(20px);
+}
+
+.track.disabled .thumb {
+  background: var(--color-neutral-100);
+}
+
+.nativeInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}

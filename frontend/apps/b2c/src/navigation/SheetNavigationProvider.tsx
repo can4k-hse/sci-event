@@ -9,9 +9,9 @@ export function SheetNavigationProvider({ children }: Props) {
   const [stack, setStack] = useState<SheetScreen[]>([]);
   const [direction, setDirection] = useState<'push' | 'pop'>('push');
 
-  const push = (content: ReactNode, meta?: { title?: string }) => {
+  const push = (content: ReactNode, meta?: { title?: string; fullWidth?: boolean }) => {
     setDirection('push');
-    setStack(prev => [...prev, { key: Date.now().toString(), title: meta?.title, content }]);
+    setStack(prev => [...prev, { key: Date.now().toString(), title: meta?.title, fullWidth: meta?.fullWidth, content }]);
   };
 
   const pop = () => {

@@ -17,7 +17,7 @@ export function SheetStack() {
   if (!top) return null;
 
   return (
-    <div className={styles.root}>
+    <div className={cn(styles.root, { [styles.fullWidth]: top.fullWidth })}>
       <div className={styles.header}>
         {canGoBack && (
           <Button iconOnly iconName="ChevronLeft" size="md" variant="secondary" onClick={pop} aria-label="Назад" />

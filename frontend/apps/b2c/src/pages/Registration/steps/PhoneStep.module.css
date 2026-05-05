@@ -1,0 +1,16 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px 0;
+}
+
+.picture {
+  align-self: center;
+}
+
+.disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
