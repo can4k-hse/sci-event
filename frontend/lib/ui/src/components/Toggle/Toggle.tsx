@@ -4,23 +4,24 @@ import type { ToggleProps } from './Toggle.types';
 import { Text } from '../Text';
 
 export function Toggle({ checked, onChange, disabled, label, className }: ToggleProps) {
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
     if (!disabled) onChange(!checked);
   };
 
   return (
-    <label className={cn(styles.root, { [styles.disabled]: disabled }, className)}>
+    <label
+      className={cn(styles.root, { [styles.disabled]: disabled }, className)}
+      onClick={handleClick}
+    >
       {label && (
-        <Text size="sm" className={styles.label}>{label}</Text>
+        <span className={styles.label}><Text size="sm" color="color-neutral-900">{label}</Text></span>
       )}
       <div
         className={cn(styles.track, { [styles.checked]: checked, [styles.disabled]: disabled })}
-        onClick={handleClick}
         role="switch"
         aria-checked={checked}
         aria-disabled={disabled}
-        tabIndex={disabled ? -1 : 0}
-        onKeyDown={e => { if (e.key === ' ' || e.key === 'Enter') handleClick(); }}
       >
         <div className={styles.thumb} />
       </div>

@@ -20,10 +20,10 @@ export function PhoneStep({ onNext }: PhoneStepProps) {
 
   return (
     <div className={styles.root}>
-      <Picture name="320_sms" size={320} className={styles.picture} />
-      <Text as="h1" size="xxl" weight="bold">
-        Добро пожаловать в{' '}
-        <Text as="span" color="color-primary-600">SciEvent</Text>!
+      <Picture name="320_sms" size={200} className={styles.picture} />
+      <Text as="h1" size="xxl">
+        Добро пожаловать в
+        <Text as="span" weight="bold" size="xxl" color="color-violet-600">{' '}SciEvent</Text>!
       </Text>
       <Text color="color-neutral-500">
         Для начала работы введите номер телефона. Мы отправим код подтверждения.
@@ -34,7 +34,7 @@ export function PhoneStep({ onNext }: PhoneStepProps) {
         countryCode={countryCode}
         onCountryChange={setCountryCode}
       />
-      <Button variant="primary" disabled={!isPhoneValid(phone)} onClick={handleNext}>
+      <Button variant="primary" size="lg" disabled={!isPhoneValid(phone)} onClick={handleNext}>
         Продолжить
       </Button>
       <div className={styles.disclaimer}>

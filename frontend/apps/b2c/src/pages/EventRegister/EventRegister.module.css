@@ -138,15 +138,6 @@
   padding-top: 4px;
 }
 
-.registerBtn {
-  width: 100%;
-  border-radius: 14px !important;
-  gap: 10px;
-  justify-content: center;
-  padding-top: 16px !important;
-  padding-bottom: 16px !important;
-}
-
 .ctaHint {
   display: flex;
   align-items: center;

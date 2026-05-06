@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import cn from 'classnames';
-import { Button, Text } from '@sci-event/ui';
+import { Button } from '@sci-event/ui';
 import { useSheetNavigation } from '../../navigation';
 import styles from './SheetStack.module.css';
 
@@ -20,10 +20,11 @@ export function SheetStack() {
     <div className={cn(styles.root, { [styles.fullWidth]: top.fullWidth })}>
       <div className={styles.header}>
         {canGoBack && (
-          <Button iconOnly iconName="ChevronLeft" size="md" variant="secondary" onClick={pop} aria-label="Назад" />
+          <Button iconOnly iconName="ChevronLeft" size="md" variant="bare" onClick={pop} aria-label="Назад" />
         )}
-        {top.title && <Text as="span" size="md" weight="semibold" className={styles.title}>{top.title}</Text>}
-        <Button iconOnly iconName="X" size="md" variant="secondary" onClick={closeAll} aria-label="Закрыть" />
+        <div className={styles.closeBtn}>
+          <Button iconOnly iconName="X" size="md" variant="bare" onClick={closeAll} aria-label="Закрыть" />
+        </div>
       </div>
       <div
         key={top.key}

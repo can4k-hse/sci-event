@@ -5,7 +5,6 @@ import styles from './PreferencesStep.module.css';
 export type PreferencesData = {
   topics: string[];
   notifications: boolean;
-  addToCalendar: boolean;
 };
 
 type PreferencesStepProps = {
@@ -21,7 +20,6 @@ const TOPICS = [
 export function PreferencesStep({ onNext }: PreferencesStepProps) {
   const [topics, setTopics] = useState<string[]>([]);
   const [notifications, setNotifications] = useState(true);
-  const [addToCalendar, setAddToCalendar] = useState(true);
 
   const toggleTopic = (topic: string) => {
     setTopics(prev =>
@@ -30,7 +28,7 @@ export function PreferencesStep({ onNext }: PreferencesStepProps) {
   };
 
   const handleNext = () => {
-    onNext({ topics, notifications, addToCalendar });
+    onNext({ topics, notifications });
   };
 
   return (
@@ -45,7 +43,6 @@ export function PreferencesStep({ onNext }: PreferencesStepProps) {
             key={topic}
             variant={topics.includes(topic) ? 'violet' : 'neutral'}
             onClick={() => toggleTopic(topic)}
-            style={{ cursor: 'pointer' }}
           >
             {topic}
           </Tag>
@@ -57,13 +54,8 @@ export function PreferencesStep({ onNext }: PreferencesStepProps) {
           onChange={setNotifications}
           label="Получать уведомления о мероприятиях и новостях"
         />
-        <Toggle
-          checked={addToCalendar}
-          onChange={setAddToCalendar}
-          label="Добавить мероприятия в календарь"
-        />
       </div>
-      <Button variant="primary" onClick={handleNext}>
+      <Button variant="primary" size="lg" onClick={handleNext}>
         Завершить регистрацию
       </Button>
     </div>

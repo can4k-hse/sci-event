@@ -12,7 +12,6 @@ export function Text({
   weight = "regular",
   color,
   textAlign,
-  className,
   style,
   children,
   ...props
@@ -22,7 +21,6 @@ export function Text({
     styles[size],
     styles[weight],
     textAlign && styles[textAlign],
-    className,
   );
   const colorStyle = color ? { color: colorToVar(color) } : undefined;
   const mergedStyle = colorStyle || style ? { ...colorStyle, ...style } : undefined;

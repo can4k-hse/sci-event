@@ -4,18 +4,21 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   border: none;
   cursor: pointer;
   font-family: inherit;
   font-weight: 500;
-  border-radius: 6px;
+  border-radius: 14px;
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 /* Sizes */
 .sm { padding: 4px 12px; font-size: 12px; }
 .md { padding: 8px 16px; font-size: 14px; }
-.lg { padding: 12px 24px; font-size: 16px; }
+.lg { padding: 16px 24px; font-size: 16px; }
+
+.fullWidth { width: 100%; }
 
 /* Icon only — square, no text padding */
 .iconOnly.sm { padding: 4px; width: 28px; height: 28px; }
@@ -43,6 +46,13 @@
 }
 .ghost:hover { background-color: var(--color-violet-50); }
 .ghost:active { background-color: var(--color-violet-100); }
+
+.bare {
+  background-color: transparent;
+  color: var(--color-neutral-700);
+}
+.bare:hover { background-color: transparent; }
+.bare:active { background-color: transparent; }
 
 .button:disabled {
   opacity: 0.4;

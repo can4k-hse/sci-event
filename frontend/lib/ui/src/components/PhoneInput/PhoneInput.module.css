@@ -10,48 +10,45 @@
   display: flex;
   align-items: center;
   border: 1.5px solid var(--color-neutral-300);
-  border-radius: 6px;
+  border-radius: 14px;
   background: var(--color-white);
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
   overflow: hidden;
   box-sizing: border-box;
 }
 
-.root.focused {
+.root:focus-within {
   border-color: var(--color-primary-500);
   box-shadow: 0 0 0 3px var(--color-primary-100);
 }
 
-.root.error {
+.root:has([aria-invalid="true"]) {
   border-color: var(--color-error-500);
 }
 
-.root.error.focused {
+.root:has([aria-invalid="true"]):focus-within {
   box-shadow: 0 0 0 3px var(--color-error-100);
 }
 
-.root.disabled {
+.root:has(:disabled) {
   background: var(--color-neutral-100);
   cursor: not-allowed;
 }
 
-.countryBtn {
+.prefix {
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 8px 10px;
-  background: none;
-  border: none;
-  cursor: pointer;
+  padding: 14px 10px;
   flex-shrink: 0;
   font-family: inherit;
   font-size: 14px;
   color: var(--color-neutral-900);
   white-space: nowrap;
+  user-select: none;
 }
 
-.countryBtn:disabled {
-  cursor: not-allowed;
+.root:has(:disabled) .prefix {
   color: var(--color-neutral-400);
 }
 
@@ -64,7 +61,7 @@
 
 .input {
   flex: 1;
-  padding: 8px 12px;
+  padding: 14px 12px;
   border: none;
   outline: none;
   background: transparent;
@@ -81,46 +78,4 @@
 .input:disabled {
   cursor: not-allowed;
   color: var(--color-neutral-400);
-}
-
-.errorText {
-  font-size: 12px;
-  color: var(--color-error-600);
-}
-
-.dropdown {
-  position: absolute;
-  top: calc(100% + 4px);
-  left: 0;
-  min-width: 180px;
-  background: var(--color-white);
-  border: 1px solid var(--color-neutral-200);
-  border-radius: 8px;
-  box-shadow: 0 4px 16px var(--color-shadow);
-  z-index: 100;
-  overflow: hidden;
-}
-
-.dropdownItem {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 14px;
-  cursor: pointer;
-  font-size: 14px;
-  color: var(--color-neutral-900);
-  transition: background-color 0.1s;
-}
-
-.dropdownItem:hover {
-  background: var(--color-neutral-50);
-}
-
-.dropdownItem.active {
-  background: var(--color-primary-50);
-  color: var(--color-primary-700);
-}
-
-.positionAnchor {
-  position: relative;
 }

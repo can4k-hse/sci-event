@@ -4,3 +4,13 @@
   gap: 16px;
   padding: 8px 0;
 }
+
+.otpWrapper { align-self: center; padding-top: 16px; padding-bottom: 8px; }
+
+.resend {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-top: 16px;
+}

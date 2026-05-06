@@ -14,8 +14,8 @@ export function ExpiredScreen({ onResend, onChangePhone }: ExpiredScreenProps) {
       <Text color="color-neutral-500">
         Запросите новый код подтверждения, чтобы продолжить регистрацию.
       </Text>
-      <Button variant="primary" onClick={onResend}>Отправить новый код</Button>
-      <Button variant="ghost" onClick={onChangePhone}>Изменить номер телефона</Button>
+      <Button variant="primary" size="lg" onClick={onResend}>Отправить новый код</Button>
+      <Button variant="ghost" size="lg" onClick={onChangePhone}>Изменить номер телефона</Button>
     </div>
   );
 }

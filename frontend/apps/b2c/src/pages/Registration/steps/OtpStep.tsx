@@ -9,7 +9,7 @@ type OtpStepProps = {
   onResend: () => void;
 };
 
-const OTP_DURATION = 90;
+const OTP_DURATION = 20;
 const MOCK_INVALID = '000000';
 
 function formatTime(seconds: number): string {
@@ -52,18 +52,23 @@ export function OtpStep({ phone, onNext, onExpired, onResend }: OtpStepProps) {
 
   return (
     <div className={styles.root}>
-      <Text as="h1" size="xxl" weight="bold">Введите код из SMS</Text>
-      <Text color="color-neutral-500">Мы отправили код подтверждения на номер {phone}</Text>
-      <OtpInput value={code} onChange={handleChange} error={isError} disabled={isExpired} />
-      <Text size="sm" color={isExpired ? 'color-error-500' : 'color-neutral-500'}>
+      <Text as="h1" size="xxl" weight="bold" textAlign="left">Введите код из SMS</Text>
+      <Text color="color-neutral-500" textAlign="left">Мы отправили код подтверждения на номер<br />{phone}</Text>
+      <div className={styles.otpWrapper}>
+        <OtpInput value={code} onChange={handleChange} error={isError} disabled={isExpired} />
+      </div>
+      <Text size="sm" color={isExpired ? 'color-error-500' : 'color-neutral-500'} textAlign="center">
         Код действует {formatTime(seconds)}
       </Text>
       {isError && (
-        <Text color="color-error-500" size="sm">Неверный код. Попробуйте ещё раз</Text>
+        <Text color="color-error-500" size="sm" textAlign="center">Неверный код. Попробуйте ещё раз</Text>
       )}
-      <Button variant="ghost" disabled={!isExpired} onClick={onResend}>
-        Отправить ещё раз
-      </Button>
+      <div className={styles.resend}>
+        <Text size="sm" color="color-neutral-400">Не получили код?</Text>
+        <Button variant="ghost" size="md" disabled={!isExpired} onClick={onResend}>
+          Отправить ещё раз
+        </Button>
+      </div>
     </div>
   );
 }
