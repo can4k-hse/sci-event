@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import cn from "classnames";
 import styles from "./Modal.module.css";
@@ -8,15 +7,6 @@ import { Icon } from "../Icon";
 export type { ModalProps } from "./Modal.types";
 
 export function Modal({ open, onClose, title, children, className }: ModalProps) {
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
-    document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
-  }, [open, onClose]);
-
   if (!open) return null;
 
   return createPortal(

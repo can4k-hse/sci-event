@@ -6,7 +6,7 @@ export type TextSize = "xs" | "sm" | "md" | "lg" | "xl" | "xxl" | "xxxl";
 export type TextWeight = "regular" | "medium" | "semibold" | "bold";
 export type TextAlign = 'left' | 'center' | 'right' | 'justify';
 
-export type TextProps = HTMLAttributes<HTMLElement> & {
+export type TextProps = Omit<HTMLAttributes<HTMLElement>, "className"> & {
   as?: TextAs;
   size?: TextSize;
   weight?: TextWeight;

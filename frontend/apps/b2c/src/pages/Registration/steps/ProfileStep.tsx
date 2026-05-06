@@ -52,13 +52,12 @@ export function ProfileStep({ onNext }: ProfileStepProps) {
             key={tag}
             variant={interests.includes(tag) ? 'violet' : 'neutral'}
             onClick={() => toggleInterest(tag)}
-            style={{ cursor: 'pointer' }}
           >
             {tag}
           </Tag>
         ))}
       </div>
-      <Button variant="primary" disabled={!isValid} onClick={handleNext}>
+      <Button variant="primary" size="lg" disabled={!isValid} onClick={handleNext}>
         Продолжить
       </Button>
     </div>

@@ -11,6 +11,10 @@
   white-space: nowrap;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 .violet {
   background: var(--color-violet-100);
   color: var(--color-violet-600);

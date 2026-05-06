@@ -1,4 +1,4 @@
-import { useRef, type ClipboardEvent, type KeyboardEvent } from 'react';
+import { useRef, type ClipboardEvent } from 'react';
 import cn from 'classnames';
 import styles from './OtpInput.module.css';
 import type { OtpInputProps } from './OtpInput.types';
@@ -18,23 +18,6 @@ export function OtpInput({ length = 6, value, onChange, error, disabled, classNa
     const next = digits.map((d, i) => (i === index ? digit : d)).join('');
     onChange(next);
     if (index < length - 1) focusAt(index + 1);
-  };
-
-  const handleKeyDown = (index: number, e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Backspace') {
-      if (digits[index]) {
-        const next = digits.map((d, i) => (i === index ? '' : d)).join('');
-        onChange(next);
-      } else if (index > 0) {
-        const next = digits.map((d, i) => (i === index - 1 ? '' : d)).join('');
-        onChange(next);
-        focusAt(index - 1);
-      }
-    } else if (e.key === 'ArrowLeft' && index > 0) {
-      focusAt(index - 1);
-    } else if (e.key === 'ArrowRight' && index < length - 1) {
-      focusAt(index + 1);
-    }
   };
 
   const handlePaste = (e: ClipboardEvent<HTMLInputElement>) => {
@@ -60,7 +43,6 @@ export function OtpInput({ length = 6, value, onChange, error, disabled, classNa
           value={digit}
           disabled={disabled}
           onChange={e => handleChange(i, e.target.value)}
-          onKeyDown={e => handleKeyDown(i, e)}
           onPaste={handlePaste}
           aria-label={`Цифра ${i + 1}`}
         />

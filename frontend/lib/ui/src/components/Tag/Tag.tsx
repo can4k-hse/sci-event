@@ -1,17 +1,10 @@
 import cn from 'classnames';
 import styles from './Tag.module.css';
 import type { TagProps } from './Tag.types';
-import { colorToVar } from '../../tokens/ColorToken';
 
-export function Tag({ variant = 'violet', color, className, style, children, ...props }: TagProps) {
-  const colorStyle = color ? { color: colorToVar(color) } : undefined;
-  const mergedStyle = colorStyle || style ? { ...colorStyle, ...style } : undefined;
+export function Tag({ variant = 'violet', children, onClick, ...props }: TagProps) {
   return (
-    <span
-      className={cn(styles.tag, styles[variant], className)}
-      style={mergedStyle}
-      {...props}
-    >
+    <span className={cn(styles.tag, styles[variant], { [styles.clickable]: !!onClick })} onClick={onClick} {...props}>
       {children}
     </span>
   );

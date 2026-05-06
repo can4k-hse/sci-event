@@ -22,7 +22,7 @@ export function App() {
         place={places[0]}
         onRegister={() =>
           push(
-            <Registration onComplete={closeAll} onCancel={closeAll} />,
+            <Registration onComplete={closeAll} />,
             { title: 'Регистрация', fullWidth: true }
           )
         }
