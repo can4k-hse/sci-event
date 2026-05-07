@@ -20,10 +20,10 @@ export function SheetStack() {
     <div className={cn(styles.root, { [styles.fullWidth]: top.fullWidth })}>
       <div className={styles.header}>
         {canGoBack && (
-          <Button iconOnly iconName="ChevronLeft" size="md" variant="bare" onClick={pop} aria-label="Назад" />
+          <Button iconOnly iconName="ChevronLeft" size="lg" variant="bare" onClick={pop} aria-label="Назад" />
         )}
         <div className={styles.closeBtn}>
-          <Button iconOnly iconName="X" size="md" variant="bare" onClick={closeAll} aria-label="Закрыть" />
+          <Button iconOnly iconName="X" size="lg" variant="bare" onClick={closeAll} aria-label="Закрыть" />
         </div>
       </div>
       <div
